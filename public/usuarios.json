@@ -1,0 +1,57 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "admin",
+      "menu": [
+        {
+          "id": 1,
+          "texto": "Dashboard",
+          "ruta": "/dashboard"
+        },
+        {
+          "id": 2,
+          "texto": "Usuarios",
+          "ruta": "/usuarios"
+        },
+        {
+          "id": 3,
+          "texto": "Configuración",
+          "ruta": "/configuracion"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "editor",
+      "menu": [
+        {
+          "id": 1,
+          "texto": "Dashboard",
+          "ruta": "/dashboard"
+        },
+        {
+          "id": 2,
+          "texto": "Artículos",
+          "ruta": "/articulos"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "invitado",
+      "menu": [
+        {
+          "id": 1,
+          "texto": "Inicio",
+          "ruta": "/"
+        },
+        {
+          "id": 2,
+          "texto": "Contacto",
+          "ruta": "/contacto"
+        }
+      ]
+    }
+  ]
+}
