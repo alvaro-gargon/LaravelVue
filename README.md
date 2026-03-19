@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Laravel + Vue Starter Kit
 
 ## Introduction
@@ -24,7 +23,5 @@ In order to ensure that the Laravel community is welcoming to all, please review
 ## License
 
 The Laravel + Vue starter kit is open-sourced software licensed under the MIT license.
-=======
 # LaravelVue
 This repository serves the porpouse of learning how to work with the combination of a front-end framework (VUE) and a back-end framework (Laravel).
->>>>>>> 818a75adca61f8177e697841dd0aaa9d93b45f44
