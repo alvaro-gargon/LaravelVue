@@ -8,7 +8,7 @@
   </head>
   <body>
     <div style="height: 100dvh" id="app"></div>
-    @vite(['resources/js/main.js'])
+    @vite('resources/js/main.js')
   </body>
 </html>
 
