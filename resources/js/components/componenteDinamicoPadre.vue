@@ -24,14 +24,7 @@ export default {
     }
   },
   mounted() {
-    this.componenteActual = componente1
-    this.propsComponente = {
-      enlace: '/leon.jpg',
-      alt: 'foto leon',
-      carpetaGuardado: 'public',
-      titulo: 'Esto se corresponde con el PRIMER componente',
-      parrafo: 'Y esto es una foto de un leon',
-    }
+    this.version1();
   },
   methods: {
     version1() {
