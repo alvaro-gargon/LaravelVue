@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       menu: [],
-      nombre: 'admin',
+      nombre: sessionStorage.getItem('usuarioActivoApi'),
       usuarios: [], // guardamos todos los usuarios una vez
     }
   },
@@ -36,6 +36,9 @@ export default {
     const data = await obtenerUsuarios()
     this.usuarios = data.usuarios
     this.actualizarMenu()
+    if (sessionStorage.getItem('usuarioActivoApi')===null) {
+      sessionStorage.setItem('usuarioActivoApi','admin');
+    }
   },
 
   watch: {
@@ -53,6 +56,7 @@ export default {
       const usuario = this.usuarios.find((u) => u.nombre === this.nombre)
       //si el usuario existe, osea la operacion anterior salio true, se asigna el menu del usuario al menu que sale en pantalla
       this.menu = usuario ? usuario.menu : []
+      sessionStorage.setItem('usuarioActivoApi',usuario.nombre);
     },
   },
 }

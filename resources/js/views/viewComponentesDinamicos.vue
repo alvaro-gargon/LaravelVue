@@ -11,4 +11,9 @@ export default {
   },
 }
 </script>
-<style></style>
+<style scoped>
+  h2{
+    display: flex;
+    justify-content: center;
+  }
+</style>
