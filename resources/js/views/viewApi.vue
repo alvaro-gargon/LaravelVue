@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       menu: [],
-      nombre: sessionStorage.getItem('usuarioActivoApi'),
+      nombre: sessionStorage.getItem('usuarioActivoApi')==null? 'admin':sessionStorage.getItem('usuarioActivoApi'),
       usuarios: [], // guardamos todos los usuarios una vez
     }
   },
