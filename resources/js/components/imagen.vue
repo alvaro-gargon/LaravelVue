@@ -1,6 +1,6 @@
 <template>
   <figure>
-    <img :src="url" :alt="texto" />
+    <img :src="url" :alt="texto" loading="lazy"/>
     <figcaption>Esta imagen esta en la carpeta {{ carpeta }}</figcaption>
   </figure>
 </template>
