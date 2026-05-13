@@ -1,5 +1,6 @@
 <template>
   <div>
+    <subirFotoPerfil></subirFotoPerfil>
     <h2 v-resaltar>
       Esta página esta dedicada a explicar y mostrar el funcionamiento de aspectos básicos de Vue.js
     </h2>
@@ -14,6 +15,7 @@
 <script>
 import BotonEliminarse from '@/components/botonEliminarse.vue'
 import VentanaArrastrable from '@/components/ventana-arrastrable.vue'
+import subirFotoPerfil from '../components/subirFoto.vue'
 const vResaltar = {
   mounted(el) {
     el.style.cursor = 'pointer'
@@ -30,6 +32,7 @@ export default {
   components: {
     BotonEliminarse,
     VentanaArrastrable,
+    subirFotoPerfil
   },
   directives: {
     resaltar: vResaltar,

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\BD\UsuarioController;
+use App\Http\Controllers\Api\BD\ControladorPerfil;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\PostController as V1PostController;
 use App\Http\Controllers\Api\V2\PostController as V2PostController;
@@ -31,3 +32,7 @@ Route::prefix('v2')->group(function(){
 Route::prefix('bd')->group(function(){
     Route::apiResource('usuario', UsuarioController::class);
 });
+
+//ruta para la foto de perfil
+Route::post('/perfil/foto', [ControladorPerfil::class, 'guardarFoto']);
+Route::get('/perfil/foto', [ControladorPerfil::class, 'obtenerFoto']);
