@@ -1,8 +1,13 @@
 <template>
   <div class="window" :style="{ left: x + 'px', top: y + 'px' }">
-    <div class="titlebar" @mousedown="startDrag">Arrastrar</div>
+    <div class="titlebar" @click="toogleDrag">Arrastrar</div>
 
     <div class="content">Aqui habria contenido</div>
+    <!-- Punto de agarre -->
+    <div class="grab-point" :style="{
+      left: (x + offsetX - 6) + 'px',
+      top: (y + offsetY - 6) + 'px'
+    }"></div>
   </div>
 </template>
 
@@ -20,27 +25,34 @@ export default {
   },
 
   methods: {
-    startDrag(e) {
+    toogleDrag(e) {
+      if(this.dragging){
+        this.stopDrag()
+        return
+      }
+      const rect=e.currentTarget.getBoundingClientRect()
+      this.offsetX = e.clientX - rect.left
+      this.offsetY = e.clientY - rect.top
       this.dragging = true
-      this.offsetX = e.clientX - this.x
-      this.offsetY = e.clientY - this.y
 
       window.addEventListener('mousemove', this.onDrag)
-      window.addEventListener('mouseup', this.stopDrag)
+      // setTimeout(() => {
+      //   window.addEventListener('click', this.stopDrag)
+      // }, 0) este setTimeout() se añadio para que no detectará el click de iniciar el movimiento a la vez que el de pararlo
     },
 
     onDrag(e) {
       if (!this.dragging) return
 
       this.x = e.clientX - this.offsetX
-      this.y = e.clientY - this.offsetY
+      this.y = e.clientY - this.offsetY //esta resta es para que el elemento se mueva por donde lo has agarrado y no por la esquina superior izquierda
     },
 
     stopDrag() {
       this.dragging = false
 
       window.removeEventListener('mousemove', this.onDrag)
-      window.removeEventListener('mouseup', this.stopDrag)
+      // window.removeEventListener('click', this.stopDrag)
     },
   },
 }
@@ -50,12 +62,23 @@ export default {
 * {
   box-sizing: border-box;
 }
+
 .window {
   position: absolute;
   width: 300px;
   border: 1px solid #aaa;
   background: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.grab-point {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: red;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 .titlebar {
