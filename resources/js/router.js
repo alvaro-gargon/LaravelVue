@@ -4,6 +4,7 @@ import viewPrincipal from './views/viewPrincipal.vue'
 import viewApi from './views/viewApi.vue'
 import viewComponentes from './views/viewComponentes.vue'
 import viewComponentesDinamicos from './views/viewComponentesDinamicos.vue'
+import viewSinResultado from './views/viewSinResultado.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -26,6 +27,12 @@ const router = createRouter({
       path: '/apis',
       name: 'apis',
       component: viewApi,
+    },
+    //esta tiene que ser siempre la ultima (ruta para cuando no encuentra la ruta(valga la redundancia))
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'SinResultado',
+      component: viewSinResultado,
     },
   ],
 })
